@@ -1,0 +1,28 @@
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\bin\Debug\Haley.exe.config
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\bin\Debug\Haley.exe
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\bin\Debug\Haley.pdb
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\bin\Debug\Interop.WMPLib.dll
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Interop.WMPLib.dll
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.csproj.ResolveComReference.cache
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.Haley_Sight.resources
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.Properties.Resources.resources
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.csproj.GenerateResource.Cache
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.exe
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.pdb
+C:\Users\talle\documents\visual studio 2015\Projects\Haley\Haley\obj\Debug\Haley.csprojResolveAssemblyReference.cache
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\bin\Debug\Haley.exe.config
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Interop.WMPLib.dll
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.csproj.ResolveComReference.cache
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.exe
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.pdb
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.csprojResolveAssemblyReference.cache
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.Properties.Resources.resources
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.csproj.GenerateResource.Cache
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\obj\Debug\Haley.Haley_Sight.resources
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\bin\Debug\Haley.exe
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\bin\Debug\Haley.pdb
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\bin\Debug\Interop.WMPLib.dll
+C:\Users\talle\Documents\GitHub\Haley_v00.15\Haley\bin\Debug\AxInterop.WMPLib.dll
