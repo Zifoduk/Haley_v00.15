@@ -27,14 +27,13 @@ namespace Haley
         static Haley_Responce HaleyResp = Haley_Sight.HaleyRes;
         public static Grammar grm;
         public static WindowsMediaPlayer MusicPlayer = new WindowsMediaPlayer();
-        static Configuration ConfigManager = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        static Configuration ConfigManager = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
         public static string[] sd = Directory.GetFiles(ConfigManager.AppSettings.Settings["Mlocation"].Value, "*.mp3", SearchOption.AllDirectories).ToArray();
 
         public static void Start()
         {    
-            string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;
-            MusicPlayer.URL = ConfigManager.AppSettings.Settings["MCurrent"].Value;
-            Console.WriteLine(MusicPlayer.URL);
+            string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;            
+            Console.WriteLine(MusicPlayer.URL.ToString());
             MusicList = Directory.GetFiles(MusicLoc, "*.mp3", SearchOption.AllDirectories).Select(Path.GetFileNameWithoutExtension).ToArray();
             foreach (var item in MusicList)
             {
@@ -50,7 +49,6 @@ namespace Haley
         {
             Haley_Sight.UpdateGrammar(grm);
             Haley_Sight.HaleyStatus = Condition.Music;
-            HaleyResp.MusicQResponce();
         }
 
         public static void MusicGramRemove()
@@ -68,8 +66,8 @@ namespace Haley
             string Sender = sd[choice].ToString();
             MusicPlayer.URL = Sender;
             ConfigManager.AppSettings.Settings["MCurrent"].Value = Sender;
-            ConfigManager.Save(ConfigurationSaveMode.Modified, true);
-            ConfigurationManager.RefreshSection(ConfigManager.AppSettings.SectionInformation.Name);
+            ConfigManager.Save(ConfigurationSaveMode.Full, true);
+            ConfigurationManager.RefreshSection("appSettings");
             PlayMusic();
             Haley_Sight.Haley_Speech("Ok");
             Haley_Sight.HaleyStatus = Condition.Awake;
@@ -90,8 +88,7 @@ namespace Haley
                     break;
                 }
             }
-
-
+            
             Haley_Sight.HaleyStatus = Condition.Awake;
             string Sender = truetemp;
             Console.WriteLine(CurrentSong);

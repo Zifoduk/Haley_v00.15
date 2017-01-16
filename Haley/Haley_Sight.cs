@@ -33,6 +33,8 @@ namespace Haley
 
         //commands 
         static List<Lister> GlobalCommands = new List<Lister>();
+        public static Dictionary<int, Action> Methods = new Dictionary<int, Action>();
+
         /*static List<string> ComGreatings = new List<string>();
         static List<string> ComTime = new List<string>();
         static List<string> ComLeavings = new List<string>();
@@ -49,20 +51,32 @@ namespace Haley
 
         public Haley_Sight()
         {
+            InitializeComponent();
             //var Commands = new List<Command>();
             //GlobalList = Commands;
             HaleyStatus = Condition.Sleep;
             string resource_command = Properties.Resources.HaleyCommands;
             string[] temp = resource_command.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             HaleyRes.Update();
-            Haley_Media.Start();          
-
+            Haley_Media.Start();
+            Methods.Add(1, () => HaleyRes.IntroResponce());
+            Methods.Add(2, () => HaleyRes.WakeResponce());
+            Methods.Add(3, () => HaleyRes.GreetingResponce());
+            Methods.Add(4, () => HaleyRes.LeavingResponce());
+            Methods.Add(5, () => HaleyRes.TimeResponce());
+            Methods.Add(6, () => HaleyRes.DateResponce());
+            Methods.Add(7, () => HaleyRes.MusicQResponce());
+            Methods.Add(8, () => HaleyRes.CancelResponce());
+            Methods.Add(9, () => Haley_Media.PlayMusic());
+            Methods.Add(10, () => Haley_Media.StopMusic());
+            Methods.Add(11, () => Haley_Media.NextTrack());
+            Methods.Add(12, () => Haley_Media.PrevTrack());
             /*string line;
             string Checkline;
             string Checkchar;
             string Trueline;
             string LastCheck;*/
-            
+
 
             int IDG = 0;
             foreach (var item in temp)
@@ -269,7 +283,6 @@ namespace Haley
             foreach (var item in ComLMusic)
                 Commands.Add(item);
                 */
-            InitializeComponent();
             SpeechSynth.SelectVoice("Microsoft Zira Desktop");
             Grammar gr = new Grammar(new GrammarBuilder(Commands));
             gr.Priority = 2;
@@ -305,107 +318,19 @@ namespace Haley
             SpeechSynth.Speak(W);
         }
 
-        /*void Haley_Recognition()
-        {
-
-        }*/
-
        private static void r_SpeechRecgognized(object sender, SpeechRecognizedEventArgs e)
         {
             if (e.Result.Confidence >= 0.7)
             {
-             /*   if (HaleyStatus == Condition.Awake)
+              if (HaleyStatus == Condition.Awake)
                 {                    
-                    string rez = e.Result.Text;
-                    Console.WriteLine(rez);
-                    foreach (var item in ComWake)
-                        if (rez == item)
-                        {
-                            HaleyRes.WakeResponce();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComGreatings)
-                        if (rez == item)
+                    string Rec = e.Result.Text;
+                    Console.WriteLine(Rec);
+                    foreach (var item in GlobalCommands)
+                        if (Rec == item.Direction)
                         {
                             Haley_Looks.Expess("Active");
-                            HaleyRes.GreetingResponce();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComTime)
-                        if (rez == item)
-                        {
-                            Haley_Looks.Expess("Active");
-                            HaleyRes.TimeResponce();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    if(ComTime.Contains(rez))
-                    {
-                        Haley_Looks.Expess("Active");
-                        HaleyRes.TimeResponce();
-                        VoicePresent = true;
-                        Task t = Timeout();
-                    }
-                    foreach (var item in ComLeavings)
-                        if (rez == item)
-                        {
-                            HaleyRes.LeavingResponce();
-                            StateChange(0);
-                            VoicePresent = true;
-                            //Haley_Media.MusicGramRemove();
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComDate)
-                        if (rez == item)
-                        {
-                            Haley_Looks.Expess("Active");
-                            HaleyRes.DateResponce();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComSMusic)
-                        if (rez == item)
-                        {
-                            Haley_Media.MusicResponce();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComPMusic)
-                        if (rez == item)
-                        {
-                            Haley_Media.PlayMusic();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComEMusic)
-                        if (rez == item)
-                        {
-                            Haley_Media.StopMusic();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComNMusic)
-                        if (rez == item)
-                        {
-                            Haley_Media.NextTrack();
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
-                        }
-                    foreach (var item in ComLMusic)
-                        if (rez == item)
-                        {
-                            Haley_Media.PrevTrack();
+                            Methods[item.Unix]();
                             VoicePresent = true;
                             Task t = Timeout();
                             break;
@@ -413,12 +338,12 @@ namespace Haley
                 }
                 else if (HaleyStatus == Condition.Sleep)
                 {
-                    string rez = e.Result.Text;
-                    Console.WriteLine(rez);
-                    foreach (var item in ComWake)
-                        if (rez == item)
+                    string Rec = e.Result.Text;
+                    Console.WriteLine(Rec);
+                    foreach (var item in GlobalCommands)
+                        if (Rec == item.Direction)
                         {
-                            HaleyRes.WakeResponce();
+                            Methods[item.Unix]();
                             StateChange(1);
                             VoicePresent = true;
                             Task t = Timeout();
@@ -427,15 +352,15 @@ namespace Haley
                 }
                 else if (HaleyStatus == Condition.Music)
                 {
-                    string rez = e.Result.Text;
-                    Console.WriteLine(rez);
-                    if (rez == "any song available" || rez == "random song" || rez == "any song")
+                    string Rec = e.Result.Text;
+                    Console.WriteLine(Rec);
+                    if (Rec == "any song available" || Rec == "random song" || Rec == "any song")
                     {
                         Haley_Media.RndSelectMusic();
                         VoicePresent = true;
                         Task t = Timeout();
                     }
-                    else if (rez == "cancel selection" || rez == "hayle cancel")
+                    else if (Rec == "cancel selection" || Rec == "hayle cancel")
                     {
                         Haley_Looks.Expess("Awake");
                         HaleyRes.CancelResponce();
@@ -444,16 +369,15 @@ namespace Haley
                     }
                     else foreach (var item in Haley_Media.MusicList)
                     {
-                        if (rez == item)
+                        if (Rec == item)
                         {
-                            Haley_Media.SelectMusic(rez);
+                            Haley_Media.SelectMusic(Rec);
                             VoicePresent = true;
                             Task t = Timeout();
                             break;
                         }
-                    }
-                    
-                }*/
+                    }                    
+                }
             }
         } 
 
@@ -551,5 +475,4 @@ namespace Haley
         public string Direction { get; set; }
         public int Unix { get; set; }
     }
-
 }

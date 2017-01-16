@@ -49,9 +49,12 @@ namespace Haley
             {
                 Console.WriteLine(item);
                 string s = item.Trim('[', ']');
+                Console.WriteLine(s);
                 int Index = s.IndexOf(',');
                 string IDirection = s.Substring(0, Index);
+                Console.WriteLine(IDirection);
                 int IUnix = int.Parse(s.Substring(s.LastIndexOf(',') + 1));
+                Console.WriteLine(IUnix);
                 GlobalResponce.Add(new Lister { ID = IDG, Direction = IDirection, Unix = IUnix });
                 /*Checkline = item.ToString();
                 Checkchar = item.Substring(0, 1);
@@ -193,17 +196,17 @@ namespace Haley
             return Answer;
         }
 
-        public void WakeResponce()
+        public void IntroResponce()
         {
-            int MUnix = 2;
+            int MUnix = 1;
             string Sentence;
             Sentence = ResponcePicker(MUnix);
             Haley_Sight.Haley_Speech(Sentence);
         }
 
-        public void IntroResponce()
+        public void WakeResponce()
         {
-            int MUnix = 1;
+            int MUnix = 2;
             string Sentence;
             Sentence = ResponcePicker(MUnix);
             Haley_Sight.Haley_Speech(Sentence);
@@ -217,6 +220,15 @@ namespace Haley
             Haley_Sight.Haley_Speech(Sentence);
         }
 
+        public void LeavingResponce()
+        {
+            int MUnix = 4;
+            string Sentence;
+            Haley_Sight.StateChange(0);
+            Sentence = ResponcePicker(MUnix);
+            Haley_Sight.Haley_Speech(Sentence);
+        }
+
         public void TimeResponce()
         {
             int MUnix = 5;
@@ -225,17 +237,8 @@ namespace Haley
             Haley_Sight.Haley_Speech(Sentence + " " + DateTime.Now.ToString("H mm tt"));
         }
 
-        public void LeavingResponce()
-        {
-            int MUnix = 4;
-            string Sentence;
-            Sentence = ResponcePicker(MUnix);
-            Haley_Sight.Haley_Speech(Sentence);
-        }
-
         public void DateResponce()
         {
-
             int MUnix = 6;
             string Sentence;
             Sentence = ResponcePicker(MUnix);
@@ -244,19 +247,20 @@ namespace Haley
 
         public void MusicQResponce()
         {
-            /*Random RanPull = new Random();
-            int choice = 0;
-            choice = RanPull.Next(0, ResMusic.Count());
-            Haley_Sight.Haley_Speech(ResMusic[choice].ToString());*/
+            int MUnix = 7;
+            string Sentence;
+            Sentence = ResponcePicker(MUnix);
+            Haley_Sight.Haley_Speech(Sentence);
+            Haley_Media.MusicResponce();
         }
 
         public void CancelResponce()
         {
-            /*Random RanPull = new Random();
-            int choice = 0;
-            choice = RanPull.Next(0, ResMusic.Count());
-            Haley_Sight.Haley_Speech(ResCancel[choice].ToString());
-            Haley_Sight.StateChange(1);*/
+            int MUnix = 8;
+            string Sentence;
+            Sentence = ResponcePicker(MUnix);
+            Haley_Sight.Haley_Speech(Sentence);
+            Haley_Sight.StateChange(1);
         }
     }
 }
