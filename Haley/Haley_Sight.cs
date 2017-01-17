@@ -52,8 +52,7 @@ namespace Haley
         public Haley_Sight()
         {
             InitializeComponent();
-            //var Commands = new List<Command>();
-            //GlobalList = Commands;
+            
             HaleyStatus = Condition.Sleep;
             string resource_command = Properties.Resources.HaleyCommands;
             string[] temp = resource_command.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -300,7 +299,7 @@ namespace Haley
                 r.RecognizeAsync(RecognizeMode.Multiple);
             }
             catch { return; }
-            HaleyRes.IntroResponce();         
+            HaleyRes.IntroResponce();    
         }        
 
         private void Haley_Sight_Load(object sender, EventArgs e)
