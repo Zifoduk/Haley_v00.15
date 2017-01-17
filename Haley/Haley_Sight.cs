@@ -314,12 +314,26 @@ namespace Haley
 
         public static void Haley_Speech(string W)
         {
+            Condition temp = new Condition();
+            temp = HaleyStatus;
             SpeechSynth.Speak(W);
+            while (SpeechSynth.State == SynthesizerState.Speaking)
+            {
+                HaleyStatus = Condition.Active;
+            }
+            try
+            {
+                HaleyStatus = temp;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("exception caught " + e);
+            }
         }
 
        private static void r_SpeechRecgognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence >= 0.7)
+            if (e.Result.Confidence >= 0.82 && !VoicePresent && HaleyStatus != Condition.Active)
             {
               if (HaleyStatus == Condition.Awake)
                 {                    
@@ -342,11 +356,14 @@ namespace Haley
                     foreach (var item in GlobalCommands)
                         if (Rec == item.Direction)
                         {
-                            Methods[item.Unix]();
-                            StateChange(1);
-                            VoicePresent = true;
-                            Task t = Timeout();
-                            break;
+                            if (item.Unix == 2)
+                            {
+                                Methods[item.Unix]();
+                                StateChange(1);
+                                VoicePresent = true;
+                                Task t = Timeout();
+                                break;
+                            }
                         }
                 }
                 else if (HaleyStatus == Condition.Music)
@@ -441,6 +458,8 @@ namespace Haley
                 }
                 catch (Exception e) { Console.Write(e); }
             }
+            List<string> temp = new List<string>();
+            //Console.WriteLine(r.Grammars.ToList<>(););
         }
 
         public static void DeleteGrammar(Grammar Gram)
@@ -466,6 +485,7 @@ namespace Haley
         Awake,
         Sleep,
         Music,
+        Active,
     };
 
     public class Lister

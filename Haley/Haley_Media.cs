@@ -48,7 +48,6 @@ namespace Haley
         public static void MusicResponce()
         {
             Haley_Sight.UpdateGrammar(grm);
-            Haley_Sight.HaleyStatus = Condition.Music;
         }
 
         public static void MusicGramRemove()

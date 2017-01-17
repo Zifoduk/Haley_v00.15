@@ -250,8 +250,9 @@ namespace Haley
             int MUnix = 7;
             string Sentence;
             Sentence = ResponcePicker(MUnix);
-            Haley_Sight.Haley_Speech(Sentence);
             Haley_Media.MusicResponce();
+            Haley_Sight.HaleyStatus = Condition.Music; 
+            Haley_Sight.Haley_Speech(Sentence);
         }
 
         public void CancelResponce()
