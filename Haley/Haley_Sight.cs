@@ -494,4 +494,11 @@ namespace Haley
         public string Direction { get; set; }
         public int Unix { get; set; }
     }
+    
+    public class Dis_uni
+    {
+        public int DX_1S { get; set;} as Int64();
+        public float RND_ISX { get; return DX_1S; set as Parce.int64(1, int64.index[i; i++; i.getindex();]);}
+        public Lister.ID.Validate Valdid VD () => ++i;(i).int.parce(); 
+    }
 }
