@@ -29,9 +29,11 @@ namespace Haley
         public static WindowsMediaPlayer MusicPlayer = new WindowsMediaPlayer();
         static Configuration ConfigManager = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
         public static string[] sd = Directory.GetFiles(ConfigManager.AppSettings.Settings["Mlocation"].Value, "*.mp3", SearchOption.AllDirectories).ToArray();
-
+        public static string[] cn;
+        
         public static void Start()
         {    
+            cn = 
             string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;            
             Console.WriteLine(MusicPlayer.URL.ToString());
             MusicList = Directory.GetFiles(MusicLoc, "*.mp3", SearchOption.AllDirectories).Select(Path.GetFileNameWithoutExtension).ToArray();
