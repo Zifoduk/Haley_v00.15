@@ -1,0 +1,20 @@
+<Greatings>
+[ hello, hi, hola, wagwan ]
+<Time Request>
+[ what is the time, what's the time, tell me the time ]
+<Leaving>
+[ bye, seeya, good bye ]
+<Date>
+[ What's the date, What is the date, what day is it today, what's the date today ]
+<Wake>
+[ haley ]
+<SMusic>
+[ select music, i need music, select song ]
+<PMusic>
+[ play music, unpause the music, play the song ]
+<EMusic>
+[ pause the music, pause the song, stop the music ]
+<NMusic>
+[ next song, skip song, skip track, play the next song, skip this song ]
+<LMusic>
+[ play the previous song, play the last song, previous song, last song ]
