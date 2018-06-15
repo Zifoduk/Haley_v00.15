@@ -22,7 +22,7 @@ namespace Haley
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Haley_Sight());
+            Application.Run(new Start());
         }
        
     }

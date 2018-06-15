@@ -188,6 +188,7 @@ namespace Haley
             }
             Random Rand = new Random();
             int choice = 0;
+            Console.WriteLine(temp.Count.ToString());
             choice = Rand.Next(0, temp.Count);
 
             String Answer;

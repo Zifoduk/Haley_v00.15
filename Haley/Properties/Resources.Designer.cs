@@ -19,7 +19,7 @@ namespace Haley.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -81,24 +81,32 @@ namespace Haley.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;Greatings&gt;
-        ///[ hello, hi, hola, wagwan ]
-        ///&lt;Time Request&gt;
-        ///[ what is the time, what&apos;s the time, tell me the time ]
-        ///&lt;Leaving&gt;
-        ///[ bye, seeya, good bye ]
-        ///&lt;Date&gt;
-        ///[ What&apos;s the date, What is the date, what day is it today, what&apos;s the date today ]
-        ///&lt;Wake&gt;
-        ///[ haley ]
-        ///&lt;SMusic&gt;
-        ///[ select music, i need music, select song ]
-        ///&lt;PMusic&gt;
-        ///[ play music, unpause the music, play the song ]
-        ///&lt;EMusic&gt;
-        ///[ pause the music, pause the song, stop the music ]
-        ///&lt;NMusic&gt;
-        ///[ next song, skip song, skip track, play the next song, skip  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [haley,002]
+        ///[wagwan,003]
+        ///[hello,003]
+        ///[bye haley,004]
+        ///[good bye haley,004]
+        ///[what is the time,005]
+        ///[tell me the time,005]
+        ///[whats the time,005]
+        ///[what is the time right now,005]
+        ///[what time is it,005]
+        ///[what is the date,006]
+        ///[whats the date,006]
+        ///[what day is it today,006]
+        ///[whats the date today,006]
+        ///[select music,007]
+        ///[i need music,007]
+        ///[select song,007]
+        ///[play music,009]
+        ///[play the music,009]
+        ///[play song,009]
+        ///[play the song,009]
+        ///[stop music,010]
+        ///[stop the music,010]
+        ///[stop the song,010]
+        ///[stop the audio,010]
+        ///[pause th [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HaleyCommands {
             get {
@@ -107,22 +115,31 @@ namespace Haley.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;Intro&gt;
-        ///[Welcome Sir this is haley, Haley Lock and Load, Haley Is fully operational Sir, Sir I&apos;m Alive ]
-        ///&lt;Greatings&gt;
-        ///[ Wagwan Sir, Hello Sir, Whats up Sir, Hi Sir, Yes Sir ]
-        ///&lt;Time Request&gt;
-        ///[ the time is, currently it is, Right now is, Time right now is]
-        ///&lt;Leaving&gt;
-        ///[ bye bye sir, seeya sir, good bye sir ]
-        ///&lt;Date&gt;
-        ///[ the date is, the Date Today is, today is ]
-        ///&lt;Wake&gt;
-        ///[ Yes sir , here sir]
-        ///&lt;Music&gt;
-        ///[ What song sir , Which song would you like]
-        ///&lt;Cancel&gt;
-        ///[ Cancelling, Ending Process, Cancelled, Ended, O [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [Welcome Sir this is haley,001]
+        ///[Haley Lock and Load,001]
+        ///[Haley is fully operational sir,001]
+        ///[Yes Sir,002]
+        ///[Here Sir,002]
+        ///[Wagwan Sir,003]
+        ///[Hello Sir,003]
+        ///[What&apos;s up Sir,003]
+        ///[Hi Sir,003]
+        ///[Yes Sir,,003]
+        ///[Bye Bye Sir,004]
+        ///[Seeya Sir,004]
+        ///[Good Bye Sir,004]
+        ///[The time is,005]
+        ///[Right now it is,005]
+        ///[Time right now is,005]
+        ///[The date is,006]
+        ///[The date today is,006]
+        ///[Today is,006]
+        ///[What song sir,007]
+        ///[Which song sir,007]
+        ///[Which song would you like,007]
+        ///[Which song do you want sir,007]
+        ///[Cancelling,008]
+        ///[Ending Pr [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HaleyResponce {
             get {

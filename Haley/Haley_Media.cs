@@ -33,7 +33,7 @@ namespace Haley
         
         public static void Start()
         {    
-            cn = 
+            //cn = 
             string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;            
             Console.WriteLine(MusicPlayer.URL.ToString());
             MusicList = Directory.GetFiles(MusicLoc, "*.mp3", SearchOption.AllDirectories).Select(Path.GetFileNameWithoutExtension).ToArray();
