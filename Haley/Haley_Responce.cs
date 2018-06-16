@@ -24,25 +24,10 @@ namespace Haley
 
         static List<Lister> GlobalResponce = new List<Lister>();
 
-       /* List<string> ResIntro = new List<string>();
-        List<string> ResGreatings = new List<string>();
-        List<string> ResTime = new List<string>();
-        List<string> ResLeavings = new List<string>();
-        List<string> ResDate = new List<string>();
-        List<string> ResWake = new List<string>();
-        List<string> ResMusic = new List<string>();
-        List<string> ResCancel = new List<string>(); */
-
         public void Update()
         {
             ResList = Haley.Properties.Resources.HaleyResponce;
             string[] temp = ResList.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-           // string line;
-           // string Checkline;
-           // string Checkchar;
-           // string Trueline;
-           // string LastCheck;
 
             int IDG = 0;
             foreach (var item in temp)
@@ -56,125 +41,6 @@ namespace Haley
                 int IUnix = int.Parse(s.Substring(s.LastIndexOf(',') + 1));
                 Console.WriteLine(IUnix);
                 GlobalResponce.Add(new Lister { ID = IDG, Direction = IDirection, Unix = IUnix });
-                /*Checkline = item.ToString();
-                Checkchar = item.Substring(0, 1);
-                LastCheck = item.Substring(item.Length - 1, 1);
-                if (Checkchar == "<")
-                {
-                    if (Checkline == "<Intro>")
-                        ResGroup = 0;
-                    else if (Checkline == "<Greatings>")
-                        ResGroup = 1;
-                    else if (Checkline == "<Time Request>")
-                        ResGroup = 2;
-                    else if (Checkline == "<Leaving>")
-                        ResGroup = 3;
-                    else if (Checkline == "<Date>")
-                        ResGroup = 4;
-                    else if (Checkline == "<Wake>")
-                        ResGroup = 5;
-                    else if (Checkline == "<Music>")
-                        ResGroup = 6;
-                    else if (Checkline == "<Cancel>")
-                        ResGroup = 7;
-
-                }
-                else if (Checkchar != "<")
-                {
-                    foreach (var w in Checkline.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        line = w;
-                        LastCheck = line.Substring(line.Length - 1, 1);
-                        if (Checkchar == "[" && LastCheck != "]")
-                        {
-                            foreach (var q in line.Split(new string[] { "[" }, StringSplitOptions.RemoveEmptyEntries))
-                            {
-                                Trueline = q.ToString();
-                                Checkchar = Trueline.Substring(0, 1);
-                                LastCheck = Trueline.Substring(Trueline.Length - 1, 1);
-                                if (LastCheck == " ")
-                                    Trueline = Trueline.Substring(0, Trueline.Length - 1);
-                                if (Checkchar == " ")
-                                    Trueline = Trueline.Substring(1, Trueline.Length - 1);
-
-                                if (ResGroup == 0)
-                                    ResIntro.Add(Trueline);
-                                else if (ResGroup == 1)
-                                    ResGreatings.Add(Trueline);
-                                else if (ResGroup == 2)
-                                    ResTime.Add(Trueline);
-                                else if (ResGroup == 3)
-                                    ResLeavings.Add(Trueline);
-                                else if (ResGroup == 4)
-                                    ResDate.Add(Trueline);
-                                else if (ResGroup == 5)
-                                    ResWake.Add(Trueline);
-                                else if (ResGroup == 6)
-                                    ResMusic.Add(Trueline);
-                                else if (ResGroup == 7)
-                                    ResCancel.Add(Trueline);
-                            }
-                        }
-                        else if (Checkchar != "[" && LastCheck == "]")
-                        {
-                            foreach (var q in line.Split(new string[] { "]" }, StringSplitOptions.RemoveEmptyEntries))
-                            {
-                                Trueline = q.ToString();
-                                Checkchar = Trueline.Substring(0, 1);
-                                LastCheck = Trueline.Substring(Trueline.Length - 1, 1);
-                                if (LastCheck == " ")
-                                    Trueline = Trueline.Substring(0, Trueline.Length - 1);
-                                if (Checkchar == " ")
-                                    Trueline = Trueline.Substring(1, Trueline.Length - 1);
-
-                                if (ResGroup == 0)
-                                    ResIntro.Add(Trueline);
-                                else if (ResGroup == 1)
-                                    ResGreatings.Add(Trueline);
-                                else if (ResGroup == 2)
-                                    ResTime.Add(Trueline);
-                                else if (ResGroup == 3)
-                                    ResLeavings.Add(Trueline);
-                                else if (ResGroup == 4)
-                                    ResDate.Add(Trueline);
-                                else if (ResGroup == 5)
-                                    ResWake.Add(Trueline);
-                                else if (ResGroup == 6)
-                                    ResMusic.Add(Trueline);
-                                else if (ResGroup == 7)
-                                    ResCancel.Add(Trueline);
-
-                            }
-                        }
-                        else if (Checkchar != "]" && LastCheck != "]")
-                        {
-                            Trueline = line;
-                            Checkchar = Trueline.Substring(0, 1);
-                            LastCheck = Trueline.Substring(Trueline.Length - 1, 1);
-                            if (LastCheck == " ")
-                                Trueline = Trueline.Substring(0, Trueline.Length - 1);
-                            if (Checkchar == " ")
-                                Trueline = Trueline.Substring(1, Trueline.Length - 1);
-
-                            if (ResGroup == 0)
-                                ResIntro.Add(Trueline);
-                            else if (ResGroup == 1)
-                                ResGreatings.Add(Trueline);
-                            else if (ResGroup == 2)
-                                ResTime.Add(Trueline);
-                            else if (ResGroup == 3)
-                                ResLeavings.Add(Trueline);
-                            else if (ResGroup == 4)
-                                ResDate.Add(Trueline);
-                            else if (ResGroup == 5)
-                                ResWake.Add(Trueline);
-                            else if (ResGroup == 6)
-                                ResMusic.Add(Trueline);
-                            else if (ResGroup == 7)
-                                ResCancel.Add(Trueline);
-                        }
-                    }
-                }*/
             }
         }
         

@@ -32,6 +32,8 @@
             this.MusicLocation = new System.Windows.Forms.FolderBrowserDialog();
             this.Btn_CML = new System.Windows.Forms.Button();
             this.Dis_MusicLocation = new System.Windows.Forms.Label();
+            this.CBox_VSct = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Btn_launch
@@ -63,11 +65,32 @@
             this.Dis_MusicLocation.TabIndex = 4;
             this.Dis_MusicLocation.Text = "Select folder";
             // 
+            // CBox_VSct
+            // 
+            this.CBox_VSct.AllowDrop = true;
+            this.CBox_VSct.FormattingEnabled = true;
+            this.CBox_VSct.Location = new System.Drawing.Point(61, 132);
+            this.CBox_VSct.Name = "CBox_VSct";
+            this.CBox_VSct.Size = new System.Drawing.Size(241, 21);
+            this.CBox_VSct.TabIndex = 5;
+            this.CBox_VSct.SelectedIndexChanged += new System.EventHandler(this.CBox_VSct_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(321, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Select Voice";
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CBox_VSct);
             this.Controls.Add(this.Dis_MusicLocation);
             this.Controls.Add(this.Btn_CML);
             this.Controls.Add(this.Btn_launch);
@@ -84,5 +107,7 @@
         private System.Windows.Forms.FolderBrowserDialog MusicLocation;
         private System.Windows.Forms.Button Btn_CML;
         private System.Windows.Forms.Label Dis_MusicLocation;
+        private System.Windows.Forms.ComboBox CBox_VSct;
+        private System.Windows.Forms.Label label1;
     }
 }

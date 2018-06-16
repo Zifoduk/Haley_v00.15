@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 311);
             this.Name = "Haley_Sight";
-            this.Text = "Form1";
+            this.Text = "Haley";
             this.Load += new System.EventHandler(this.Haley_Sight_Load);
             this.ResumeLayout(false);
 

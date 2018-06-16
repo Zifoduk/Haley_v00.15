@@ -26,15 +26,17 @@ namespace Haley
         private static int CurrentSong;
         static Haley_Responce HaleyResp = Haley_Sight.HaleyRes;
         public static Grammar grm;
-        public static WindowsMediaPlayer MusicPlayer = new WindowsMediaPlayer();
         static Configuration ConfigManager = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+        public static WindowsMediaPlayer MusicPlayer = new WindowsMediaPlayer();
         public static string[] sd = Directory.GetFiles(ConfigManager.AppSettings.Settings["Mlocation"].Value, "*.mp3", SearchOption.AllDirectories).ToArray();
         public static string[] cn;
         
-        public static void Start()
+        
+        public static void Initialize()
         {    
             //cn = 
-            string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;            
+            string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;
+            Console.WriteLine(MusicLoc);
             Console.WriteLine(MusicPlayer.URL.ToString());
             MusicList = Directory.GetFiles(MusicLoc, "*.mp3", SearchOption.AllDirectories).Select(Path.GetFileNameWithoutExtension).ToArray();
             foreach (var item in MusicList)
