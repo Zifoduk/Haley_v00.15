@@ -34,7 +34,6 @@ namespace Haley
         
         public static void Initialize()
         {    
-            //cn = 
             string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;
             Console.WriteLine(MusicLoc);
             Console.WriteLine(MusicPlayer.URL.ToString());
