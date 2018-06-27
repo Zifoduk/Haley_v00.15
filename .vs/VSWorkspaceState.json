@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Attributes",
-    "\\Haley"
+    "\\Haley",
+    "\\Haley\\obj"
   ],
-  "SelectedNode": "\\Haley\\Settings.cs",
+  "SelectedNode": "\\Haley.sln",
   "PreviewInSolutionExplorer": false
 }

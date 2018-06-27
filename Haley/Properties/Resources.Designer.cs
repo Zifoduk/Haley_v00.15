@@ -115,31 +115,7 @@ namespace Haley.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [Welcome Sir this is haley,001]
-        ///[Haley Lock and Load,001]
-        ///[Haley is fully operational sir,001]
-        ///[Yes Sir,002]
-        ///[Here Sir,002]
-        ///[Wagwan Sir,003]
-        ///[Hello Sir,003]
-        ///[What&apos;s up Sir,003]
-        ///[Hi Sir,003]
-        ///[Yes Sir,,003]
-        ///[Bye Bye Sir,004]
-        ///[Seeya Sir,004]
-        ///[Good Bye Sir,004]
-        ///[The time is,005]
-        ///[Right now it is,005]
-        ///[Time right now is,005]
-        ///[The date is,006]
-        ///[The date today is,006]
-        ///[Today is,006]
-        ///[What song sir,007]
-        ///[Which song sir,007]
-        ///[Which song would you like,007]
-        ///[Which song do you want sir,007]
-        ///[Cancelling,008]
-        ///[Ending Pr [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Welcome Sir this is haley, 1/Haley Lock and Load, 1/Haley is fully operational sir, 1/Yes Sir, 2/Here Sir, 2/Wagwan Sir, 3/Hello Sir, 3/What&apos;s up Sir, 3/Hi Sir, 3/Yes Sir, 3/Bye Bye Sir, 4/Seeya Sir, 4/Good Bye Sir, 4/The time is, 5/Right now it is, 5/Time right now is, 5/The date is, 6/The date today is, 6/Today is, 6/What song sir, 7/Which song sir, 7/Which song would you like, 7/Which song do you want sir, 7/Cancelling, 0/Ending Proccess, 8/Cancelled, 8/Ended, 8/OK, 8/.
         /// </summary>
         public static string HaleyResponce {
             get {

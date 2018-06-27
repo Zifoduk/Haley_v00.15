@@ -51,7 +51,6 @@ namespace Haley
 
         private void CBox_VSct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(CBox_VSct.SelectedItem.ToString());
             Config.AppSettings.Settings["VoiceSelected"].Value = CBox_VSct.SelectedItem.ToString();
             Config.Save(ConfigurationSaveMode.Modified);
         }

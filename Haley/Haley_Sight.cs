@@ -34,6 +34,7 @@ namespace Haley
 
         //commands 
         static List<Lister> GlobalCommands = new List<Lister>();
+        static List<Lister> GlobalWakeCommands = new List<Lister>();
         public static Dictionary<int, Action> Methods = new Dictionary<int, Action>();
 
         public static Condition HaleyStatus = new Condition();
@@ -44,21 +45,29 @@ namespace Haley
             InitializeComponent();
             HaleyStatus = Condition.Sleep;
             string resource_command = Properties.Resources.HaleyCommands;
-            string[] temp = resource_command.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            string[] temp = resource_command.Split(new string[] {"/"}, StringSplitOptions.RemoveEmptyEntries);
 
             int IDG = 0;
-            foreach (var item in temp)
+            foreach (var I in temp)
             {
-                Console.WriteLine(item);
-                string s = item.Trim(new Char[] { '[', ']' });
-                int Index = s.IndexOf(',');
-                string IDirection = s.Substring(0, Index);
-                int IUnix = int.Parse(s.Substring(s.LastIndexOf(',') + 1));
-                Console.WriteLine(IUnix + "/" + IDirection);
+                int x = I.IndexOf(',');
+                int IUnix = int.Parse(I.Substring(x + 1));
+                string IDirection = I.Substring(0, x);
                 GlobalCommands.Add(new Lister { ID = IDG, Direction = IDirection, Unix = IUnix });
                 IDG++;
                 Commands.Add(IDirection);
             }
+            foreach (var I in GlobalCommands)
+                if (I.Unix == 2)
+                    GlobalWakeCommands.Add(new Lister { ID = I.ID, Unix = I.Unix, Direction = I.Direction });
+
+            /*string[] temp = Haley.Properties.Resources.lol.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var I in temp)
+            {
+                int x = I.IndexOf(',');
+                string Direction = I.Substring(0, x);
+                int IUnix = int.Parse(I.Substring(x + 1));
+            }*/
 
             Initalize();
 
@@ -77,9 +86,6 @@ namespace Haley
             Methods.Add(11, () => Haley_Media.NextTrack());
             Methods.Add(12, () => Haley_Media.PrevTrack());
 
-
-
-
             HaleyRes.IntroResponce();    
         }       
         
@@ -89,8 +95,6 @@ namespace Haley
             Grammar gr = new Grammar(new GrammarBuilder(Commands));
             gr.Priority = 2;
             gr.Weight = 0.8f;
-
-            Console.WriteLine(SpeechSynth.Voice.Name);
 
             try
             {
@@ -115,6 +119,12 @@ namespace Haley
             HaleyLooks.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
             HaleyLooks.Image = Haley.Properties.Resources.HaleySleep;
             this.Controls.Add(HaleyLooks);
+        }
+
+        
+        private void Haley_Sight_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         public static void Haley_Speech(string W)
@@ -143,7 +153,6 @@ namespace Haley
               if (HaleyStatus == Condition.Awake)
                 {                    
                     string Rec = e.Result.Text;
-                    Console.WriteLine(Rec);
                     foreach (var item in GlobalCommands)
                         if (Rec == item.Direction)
                         {
@@ -157,31 +166,26 @@ namespace Haley
                 else if (HaleyStatus == Condition.Sleep)
                 {
                     string Rec = e.Result.Text;
-                    Console.WriteLine(Rec);
-                    foreach (var item in GlobalCommands)
+                    foreach (var item in GlobalWakeCommands)
                         if (Rec == item.Direction)
                         {
-                            if (item.Unix == 2)
-                            {
-                                Methods[item.Unix]();
-                                StateChange(1);
-                                VoicePresent = true;
-                                Task t = Timeout();
-                                break;
-                            }
+                            Methods[item.Unix]();
+                            StateChange(1);
+                            VoicePresent = true;
+                            Task t = Timeout();
+                            break;
                         }
                 }
                 else if (HaleyStatus == Condition.Music)
                 {
                     string Rec = e.Result.Text;
-                    Console.WriteLine(Rec);
                     if (Rec == "any song available" || Rec == "random song" || Rec == "any song")
                     {
                         Haley_Media.RndSelectMusic();
                         VoicePresent = true;
                         Task t = Timeout();
                     }
-                    else if (Rec == "cancel selection" || Rec == "hayle cancel")
+                    else if (Rec == "cancel selection" || Rec == "haley cancel")
                     {
                         Haley_Looks.Expess("Awake");
                         HaleyRes.CancelResponce();
@@ -264,7 +268,6 @@ namespace Haley
                 catch (Exception e) { Console.Write(e); }
             }
             List<string> temp = new List<string>();
-            //Console.WriteLine(r.Grammars.ToList<>(););
         }
 
         public static void DeleteGrammar(Grammar Gram)
@@ -283,6 +286,7 @@ namespace Haley
         {
             HaleyLooks.BackgroundImage = PictureSet;
         }
+
     }
 
     public enum Condition
@@ -300,12 +304,10 @@ namespace Haley
         public int Unix { get; set; }
     }
     
-
-    // Figure out what this does
-    public class Dis_uni
+   /* public class Dis_uni
     {
-        public int DX_1S { get; set;}
-        public float RND_ISX { get; return DX_1S; set as Parce.int64(1, int64.index[i]; i++; i.getindex(););}
+        public int DX_1S { get; set;}s
+        public float RND_ISX { get; return DX_1S; set as Parce.int64(1, int64.index[i]; i++; i.getindex();]);}
         public Lister.ID.Validate Valdid VD () => ++i;(i).int.parce(); 
-    }
+    }*/
 }

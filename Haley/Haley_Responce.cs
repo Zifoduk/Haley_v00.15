@@ -27,20 +27,16 @@ namespace Haley
         public void Update()
         {
             ResList = Haley.Properties.Resources.HaleyResponce;
-            string[] temp = ResList.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            string[] temp = ResList.Split(new string[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
 
             int IDG = 0;
-            foreach (var item in temp)
+            foreach (string I in temp)
             {
-                Console.WriteLine(item);
-                string s = item.Trim('[', ']');
-                Console.WriteLine(s);
-                int Index = s.IndexOf(',');
-                string IDirection = s.Substring(0, Index);
-                Console.WriteLine(IDirection);
-                int IUnix = int.Parse(s.Substring(s.LastIndexOf(',') + 1));
-                Console.WriteLine(IUnix);
+                int x = I.IndexOf(',');
+                string IDirection = I.Substring(0, x);
+                int IUnix = int.Parse(I.Substring(x + 1));
                 GlobalResponce.Add(new Lister { ID = IDG, Direction = IDirection, Unix = IUnix });
+                IDG++;
             }
         }
         
@@ -50,13 +46,13 @@ namespace Haley
             foreach(var L in GlobalResponce)
             {
                 if (L.Unix == UnixID)
+                {
                     temp.Add(L);
+                }
             }
             Random Rand = new Random();
             int choice = 0;
-            Console.WriteLine(temp.Count.ToString());
             choice = Rand.Next(0, temp.Count);
-
             String Answer;
             Answer = temp[choice].Direction.ToString();
 

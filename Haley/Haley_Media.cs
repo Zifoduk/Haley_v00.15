@@ -29,14 +29,11 @@ namespace Haley
         static Configuration ConfigManager = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
         public static WindowsMediaPlayer MusicPlayer = new WindowsMediaPlayer();
         public static string[] sd = Directory.GetFiles(ConfigManager.AppSettings.Settings["Mlocation"].Value, "*.mp3", SearchOption.AllDirectories).ToArray();
-        public static string[] cn;
         
         
         public static void Initialize()
         {    
             string MusicLoc = ConfigManager.AppSettings.Settings["Mlocation"].Value;
-            Console.WriteLine(MusicLoc);
-            Console.WriteLine(MusicPlayer.URL.ToString());
             MusicList = Directory.GetFiles(MusicLoc, "*.mp3", SearchOption.AllDirectories).Select(Path.GetFileNameWithoutExtension).ToArray();
             foreach (var item in MusicList)
             {
@@ -86,17 +83,14 @@ namespace Haley
                 {
                     truetemp = item;
                     CurrentSong = Array.IndexOf(sd, item);
-                    Console.WriteLine(Array.IndexOf(sd, item));
                     break;
                 }
             }
             
             Haley_Sight.HaleyStatus = Condition.Awake;
             string Sender = truetemp;
-            Console.WriteLine(CurrentSong);
             MusicPlayer.URL = Sender;
             ConfigManager.AppSettings.Settings["MCurrent"].Value = Sender;
-            Console.WriteLine(ConfigManager.AppSettings.Settings["MCurrent"].Value);
             ConfigManager.Save(ConfigurationSaveMode.Modified, true);
             ConfigurationManager.RefreshSection(ConfigManager.AppSettings.SectionInformation.Name);
             PlayMusic();
@@ -145,12 +139,8 @@ namespace Haley
             {
                 if (MusicPlayer.playState == WMPPlayState.wmppsPlaying)
                 {
-                    Console.WriteLine(CurrentSong);
                     CurrentSong++;
                     string Sender = sd[CurrentSong];
-
-                    Console.WriteLine(CurrentSong);
-                    Console.WriteLine(Sender);
                     MusicPlayer.URL = Sender;
                     MusicPlayer.controls.play();
                 }
@@ -158,12 +148,8 @@ namespace Haley
                 {
                     try
                     {
-                        Console.WriteLine(CurrentSong);
                         CurrentSong++;
                         string Sender = sd[CurrentSong];
-
-                        Console.WriteLine(CurrentSong);
-                        Console.WriteLine(Sender);
                         MusicPlayer.URL = Sender;
                         MusicPlayer.controls.play();
                     }
@@ -179,12 +165,9 @@ namespace Haley
             {
                 if (MusicPlayer.playState == WMPPlayState.wmppsPlaying)
                 {
-                    Console.WriteLine(CurrentSong);
 
                     CurrentSong --;
-                    Console.WriteLine(CurrentSong);
                     string Sender = sd[CurrentSong];
-                    Console.WriteLine(Sender);
                     MusicPlayer.URL = Sender;
                     MusicPlayer.controls.play();
                 }
@@ -193,11 +176,7 @@ namespace Haley
                     try
                     {
                         CurrentSong--;
-                        Console.WriteLine(CurrentSong);
                         string Sender = sd[CurrentSong];
-
-                        Console.WriteLine(CurrentSong);
-                        Console.WriteLine(Sender);
                         MusicPlayer.URL = Sender;
                         MusicPlayer.controls.play();
                     }

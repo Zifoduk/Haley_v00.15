@@ -35,8 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 311);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Haley_Sight";
             this.Text = "Haley";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Haley_Sight_FormClosed);
             this.Load += new System.EventHandler(this.Haley_Sight_Load);
             this.ResumeLayout(false);
 
